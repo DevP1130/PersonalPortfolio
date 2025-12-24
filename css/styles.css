@@ -276,25 +276,32 @@ code, pre, .code {
     left: 0;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.skill-item {
+.skills-category {
+    margin-top: 1.5rem;
     background-color: var(--bg-card);
-    padding: 0.875rem 1.25rem;
-    border-radius: 6px;
-    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
-.skill-item:hover {
+.skills-category:hover {
     border-color: var(--accent);
-    transform: translateY(-2px);
+}
+
+.skills-category-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.skills-list {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
 }
 
 /* Projects Page */
@@ -302,6 +309,12 @@ code, pre, .code {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}
+
+.project-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .project-card {
@@ -624,8 +637,16 @@ code, pre, .code {
 
 .accomplishment-content h3 {
     font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: var(--text-primary);
+}
+
+.accomplishment-content .accomplishment-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
 .accomplishment-content p {
@@ -693,10 +714,6 @@ footer {
 
     .contact-links {
         grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .timeline-container {

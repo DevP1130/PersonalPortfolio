@@ -102,12 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    const skillItems = document.querySelectorAll('.skill-item');
-    skillItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(item);
+    const skillCategories = document.querySelectorAll('.skills-category');
+    skillCategories.forEach(category => {
+        category.style.opacity = '0';
+        category.style.transform = 'translateY(20px)';
+        category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(category);
     });
 
     const accomplishmentCards = document.querySelectorAll('.accomplishment-card');
