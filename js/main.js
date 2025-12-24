@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    const skillCategories = document.querySelectorAll('.skills-category');
+    const skillCategories = document.querySelectorAll('.skills-category-modern');
     skillCategories.forEach(category => {
         category.style.opacity = '0';
         category.style.transform = 'translateY(20px)';
