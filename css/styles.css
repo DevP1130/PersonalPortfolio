@@ -135,7 +135,7 @@ code, pre, .code {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4.55rem;
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -762,7 +762,7 @@ footer {
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3.25rem;
     }
 
     .hero-subtitle {
@@ -801,7 +801,7 @@ footer {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.6rem;
     }
 
     .hero-buttons {
