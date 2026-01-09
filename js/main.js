@@ -71,6 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', updateActiveNav);
 
+    // Add navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    function updateNavbarOnScroll() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+    window.addEventListener('scroll', updateNavbarOnScroll);
+
     // Add subtle animation on scroll for project cards
     const observerOptions = {
         threshold: 0.1,
