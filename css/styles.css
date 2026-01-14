@@ -348,7 +348,7 @@ code, pre, .code {
 
 .about-text h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--accent);
     text-align: center;
 }
@@ -366,6 +366,16 @@ code, pre, .code {
     color: var(--text-secondary);
     line-height: 1.8;
     text-align: center;
+    background-color: var(--bg-card);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.about-text p:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.1);
 }
 
 .interests-list {
