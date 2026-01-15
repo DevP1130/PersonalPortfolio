@@ -82,58 +82,47 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     window.addEventListener('scroll', updateNavbarOnScroll);
 
-    // Add subtle animation on scroll for project cards
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // Unified scroll animation system
+    const animateElements = document.querySelectorAll(`
+        .section-title,
+        .about-text h2,
+        .about-text h3,
+        .about-text > p,
+        .interests-list,
+        .skills-category-modern,
+        .timeline-header,
+        .timeline-item,
+        .project-card,
+        .accomplishment-card,
+        .contact-intro,
+        .contact-card,
+        .btn-resume
+    `);
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+    // Add animation class to all target elements
+    animateElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
+    });
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
         });
-    }, observerOptions);
 
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-
-    const contactCards = document.querySelectorAll('.contact-card');
-    contactCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-
-    const skillCategories = document.querySelectorAll('.skills-category-modern');
-    skillCategories.forEach(category => {
-        category.style.opacity = '0';
-        category.style.transform = 'translateY(20px)';
-        category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(category);
-    });
-
-    const accomplishmentCards = document.querySelectorAll('.accomplishment-card');
-    accomplishmentCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(item);
-    });
+        animateElements.forEach(el => scrollObserver.observe(el));
+    } else {
+        // Immediately show all elements if reduced motion preferred
+        animateElements.forEach(el => el.classList.add('animated'));
+    }
 });
