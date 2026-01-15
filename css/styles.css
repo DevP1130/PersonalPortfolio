@@ -53,6 +53,45 @@ body {
     flex-direction: column;
 }
 
+/* Scroll Snap Container */
+html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+}
+
+/* Scroll Snap Sections */
+.hero,
+.content-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+/* Section zoom focus effect */
+.snap-section {
+    transform: scale(0.98);
+    opacity: 0.92;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.snap-section.active-section {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+    }
+
+    .snap-section {
+        transform: none;
+        opacity: 1;
+        transition: none;
+    }
+}
+
 main {
     flex: 1;
 }

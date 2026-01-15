@@ -82,6 +82,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     window.addEventListener('scroll', updateNavbarOnScroll);
 
+    // Scroll snap section focus effect
+    const snapSections = document.querySelectorAll('.hero, .content-section');
+    const prefersReducedMotionSnap = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotionSnap) {
+        snapSections.forEach(section => section.classList.add('snap-section'));
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    snapSections.forEach(s => s.classList.remove('active-section'));
+                    entry.target.classList.add('active-section');
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px'
+        });
+
+        snapSections.forEach(section => sectionObserver.observe(section));
+
+        // Set initial active section
+        if (snapSections.length > 0) {
+            snapSections[0].classList.add('active-section');
+        }
+    }
+
     // Unified scroll animation system
     const animateElements = document.querySelectorAll(`
         .section-title,
