@@ -111,6 +111,26 @@ code, pre, .code {
     font-family: 'JetBrains Mono', monospace;
 }
 
+/* Scroll Progress Bar */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+}
+
 /* Navbar */
 .navbar {
     background-color: var(--bg-secondary);

@@ -54,12 +54,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateActiveNav() {
         let current = '';
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= (sectionTop - 100)) {
-                current = section.getAttribute('id');
-            }
-        });
+        // Check if at bottom of page
+        const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50);
+
+        if (scrolledToBottom) {
+            // If at bottom, highlight the last section (contact)
+            current = sections[sections.length - 1].getAttribute('id');
+        } else {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -81,6 +89,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     window.addEventListener('scroll', updateNavbarOnScroll);
+
+    // Scroll progress bar
+    const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+    let ticking = false;
+
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        scrollProgressBar.style.width = scrollPercent + '%';
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollProgress);
+            ticking = true;
+        }
+    });
 
     // Scroll snap section focus effect
     const snapSections = document.querySelectorAll('.hero, .content-section');
