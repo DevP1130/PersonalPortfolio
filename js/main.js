@@ -1,5 +1,55 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Typing Animation
+    (function() {
+        const typingTextEl = document.querySelector('.typing-text');
+        if (!typingTextEl) return;
+
+        const phrases = [
+            'build scalable software.',
+            'love machine learning.',
+            'create full-stack apps.',
+            'solve real-world problems.',
+            'study at Georgia Tech.'
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let deleting = false;
+
+        function type() {
+            const current = phrases[phraseIdx];
+
+            if (deleting) {
+                charIdx--;
+                typingTextEl.textContent = current.substring(0, charIdx);
+            } else {
+                charIdx++;
+                typingTextEl.textContent = current.substring(0, charIdx);
+            }
+
+            let speed = deleting ? 50 : 80;
+
+            if (!deleting && charIdx === current.length) {
+                speed = 2000;
+                deleting = true;
+            } else if (deleting && charIdx === 0) {
+                deleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                speed = 500;
+            }
+
+            setTimeout(type, speed);
+        }
+
+        // Check for reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            typingTextEl.textContent = phrases[0];
+        } else {
+            setTimeout(type, 1500);
+        }
+    })();
+
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 

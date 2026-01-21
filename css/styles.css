@@ -291,6 +291,37 @@ code, pre, .code {
     line-height: 1.2;
 }
 
+/* Typing Animation */
+.hero-typing {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    min-height: 2.5rem;
+}
+
+.typing-text {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.typing-cursor {
+    color: var(--accent);
+    font-weight: 400;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .typing-cursor {
+        animation: none;
+        opacity: 1;
+    }
+}
+
 .hero-subtitle {
     font-size: 1.8rem;
     color: var(--text-secondary);
