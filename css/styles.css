@@ -1091,6 +1091,55 @@ code, pre, .code {
     line-height: 1.6;
 }
 
+/* Clickable Card Indicators */
+.clickable-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.clickable-card .link-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 20px;
+    height: 20px;
+    color: var(--text-secondary);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.clickable-card:hover .link-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    color: var(--accent);
+}
+
+/* Timeline clickable styles */
+.timeline-slot a {
+    cursor: pointer;
+}
+
+.timeline-slot a .timeline-content {
+    position: relative;
+}
+
+.timeline-slot a .link-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 16px;
+    height: 16px;
+    color: var(--text-secondary);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.timeline-slot a:hover .link-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    color: var(--accent);
+}
+
 /* Footer */
 footer {
     background-color: var(--bg-secondary);
