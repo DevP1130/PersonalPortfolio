@@ -1,3 +1,23 @@
+// Loading Screen
+(function() {
+    const loader = document.querySelector('.loader');
+    if (!loader) return;
+
+    // Hide loader after animation completes (matches CSS timing)
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            loader.classList.add('hidden');
+        }, 2000); // Wait for load animation to complete
+    });
+
+    // Fallback: hide loader after max 4 seconds even if load event doesn't fire
+    setTimeout(function() {
+        if (loader && !loader.classList.contains('hidden')) {
+            loader.classList.add('hidden');
+        }
+    }, 4000);
+})();
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
 
