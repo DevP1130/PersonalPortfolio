@@ -249,4 +249,52 @@ document.addEventListener('DOMContentLoaded', function() {
         // Immediately show all elements if reduced motion preferred
         animateElements.forEach(el => el.classList.add('animated'));
     }
+
+    // Section transition animations
+    (function() {
+        if (prefersReducedMotion) return;
+
+        // Add transition classes to sections
+        document.querySelectorAll('.section-title').forEach(el => {
+            el.classList.add('section-fade-in');
+        });
+
+        // Timeline columns slide in from sides
+        const timelineColumns = document.querySelectorAll('.timeline-column');
+        timelineColumns.forEach((col, index) => {
+            col.classList.add(index === 0 ? 'slide-in-left' : 'slide-in-right');
+        });
+
+        // Project cards scale in
+        document.querySelectorAll('.project-card').forEach(el => {
+            el.classList.add('scale-in');
+        });
+
+        // Accomplishment cards scale in
+        document.querySelectorAll('.accomplishment-card').forEach(el => {
+            el.classList.add('scale-in');
+        });
+
+        // Contact cards slide in alternating
+        document.querySelectorAll('.contact-card').forEach((el, index) => {
+            el.classList.add(index % 2 === 0 ? 'slide-in-left' : 'slide-in-right');
+        });
+
+        // Observe all transition elements
+        const transitionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    transitionObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.section-fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            transitionObserver.observe(el);
+        });
+    })();
 });
