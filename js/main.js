@@ -18,6 +18,72 @@
     }, 4000);
 })();
 
+// Custom Cursor
+(function() {
+    // Skip on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (!dot || !ring) return;
+
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    // Enable custom cursor
+    document.body.classList.add('custom-cursor-active');
+
+    // Track mouse position
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // Move dot immediately
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+    });
+
+    // Smooth ring follow animation
+    function animateRing() {
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+
+        requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    // Hover effect for clickable elements
+    const clickables = document.querySelectorAll('a, button, .project-card, .accomplishment-card, .timeline-slot a, .nav-link, .skill-tag, .contact-card');
+
+    clickables.forEach(el => {
+        el.addEventListener('mouseenter', function() {
+            document.body.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', function() {
+            document.body.classList.remove('cursor-hover');
+        });
+    });
+
+    // Click effect
+    document.addEventListener('mousedown', function() {
+        document.body.classList.add('cursor-click');
+    });
+    document.addEventListener('mouseup', function() {
+        document.body.classList.remove('cursor-click');
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', function() {
+        document.body.classList.add('cursor-hidden');
+    });
+    document.addEventListener('mouseenter', function() {
+        document.body.classList.remove('cursor-hidden');
+    });
+})();
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
 
