@@ -1,3 +1,43 @@
+// Animated Background Particles
+(function() {
+    const particlesContainer = document.querySelector('.bg-particles');
+    if (!particlesContainer) return;
+
+    // Check for reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const particleCount = 25;
+
+    for (let i = 0; i < particleCount; i++) {
+        createParticle();
+    }
+
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+
+        // Random type: glow or dot
+        particle.classList.add(Math.random() > 0.5 ? 'particle-glow' : 'particle-dot');
+
+        // Random size
+        const size = Math.random() * 6 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+
+        // Random horizontal position
+        particle.style.left = Math.random() * 100 + '%';
+
+        // Random animation duration
+        const duration = Math.random() * 20 + 15;
+        particle.style.animationDuration = duration + 's';
+
+        // Random delay
+        particle.style.animationDelay = Math.random() * 20 + 's';
+
+        particlesContainer.appendChild(particle);
+    }
+})();
+
 // Loading Screen
 (function() {
     const loader = document.querySelector('.loader');
