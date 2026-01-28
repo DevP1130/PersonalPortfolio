@@ -563,14 +563,33 @@ code, pre, .code {
 }
 
 .typing-cursor {
-    color: var(--accent);
-    font-weight: 400;
-    animation: blink 0.8s infinite;
+    display: inline-block;
+    width: 3px;
+    height: 1.2em;
+    background-color: var(--accent);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: realisticBlink 1.06s infinite;
+    transform: translateY(-0.05em);
 }
 
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+/* Realistic cursor blink - mimics actual terminal cursor */
+@keyframes realisticBlink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Cursor stays visible while typing */
+.typing-cursor.typing-active {
+    animation: none;
+    opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

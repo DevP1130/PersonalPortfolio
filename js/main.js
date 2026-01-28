@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Typing Animation
     (function() {
         const typingTextEl = document.querySelector('.typing-text');
-        if (!typingTextEl) return;
+        const cursorEl = document.querySelector('.typing-cursor');
+        if (!typingTextEl || !cursorEl) return;
 
         const phrases = [
             'build scalable software.',
@@ -76,9 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let phraseIdx = 0;
         let charIdx = 0;
         let deleting = false;
+        let isTyping = false;
 
         function type() {
             const current = phrases[phraseIdx];
+            isTyping = true;
+            cursorEl.classList.add('typing-active');
 
             if (deleting) {
                 charIdx--;
@@ -91,12 +95,18 @@ document.addEventListener('DOMContentLoaded', function() {
             let speed = deleting ? 50 : 80;
 
             if (!deleting && charIdx === current.length) {
+                // Finished typing - pause and let cursor blink
                 speed = 2000;
                 deleting = true;
+                isTyping = false;
+                cursorEl.classList.remove('typing-active');
             } else if (deleting && charIdx === 0) {
+                // Finished deleting - brief pause before next phrase
                 deleting = false;
                 phraseIdx = (phraseIdx + 1) % phrases.length;
                 speed = 500;
+                isTyping = false;
+                cursorEl.classList.remove('typing-active');
             }
 
             setTimeout(type, speed);
