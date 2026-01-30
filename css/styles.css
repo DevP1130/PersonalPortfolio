@@ -930,9 +930,28 @@ code, pre, .code {
 
 .github-stats h3 {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
     text-align: center;
+}
+
+.github-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.github-profile-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.github-profile-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
 }
 
 .stats-container {
@@ -958,6 +977,29 @@ code, pre, .code {
 
 .stats-card.streak {
     max-width: 600px;
+}
+
+.github-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-github {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-github:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+    border-color: var(--accent);
 }
 
 @media (max-width: 768px) {
