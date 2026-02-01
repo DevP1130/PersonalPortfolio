@@ -122,20 +122,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const mobileBackdrop = document.querySelector('.mobile-menu-backdrop');
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
+    if (hamburger && navMenu && mobileBackdrop) {
+        // Toggle menu
+        function toggleMenu() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-        });
+            mobileBackdrop.classList.toggle('active');
+
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close menu
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            mobileBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking backdrop
+        mobileBackdrop.addEventListener('click', closeMenu);
 
         // Close menu when clicking on a nav link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
+            link.addEventListener('click', closeMenu);
         });
 
         // Close menu when clicking outside
@@ -144,8 +164,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const isClickOnHamburger = hamburger.contains(event.target);
 
             if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                closeMenu();
+            }
+        });
+
+        // Close menu on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
             }
         });
     }
