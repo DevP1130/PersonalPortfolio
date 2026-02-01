@@ -193,9 +193,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Active nav link on scroll
+    // Active nav link and section indicators on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    const indicatorDots = document.querySelectorAll('.indicator-dot');
 
     function updateActiveNav() {
         let current = '';
@@ -215,15 +216,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Update nav links
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === '#' + current) {
                 link.classList.add('active');
             }
         });
+
+        // Update section indicators
+        indicatorDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.getAttribute('data-section') === current) {
+                dot.classList.add('active');
+            }
+        });
     }
 
     window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Call once on load
 
     // Add navbar scroll effect
     const navbar = document.querySelector('.navbar');
