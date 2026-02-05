@@ -42,6 +42,9 @@
         <a href="#about" class="indicator-dot" data-section="about" aria-label="About">
             <span class="indicator-label">About</span>
         </a>
+        <a href="#terminal" class="indicator-dot" data-section="terminal" aria-label="Terminal">
+            <span class="indicator-label">Terminal</span>
+        </a>
         <a href="#experience" class="indicator-dot" data-section="experience" aria-label="Experience">
             <span class="indicator-label">Experience</span>
         </a>
@@ -65,6 +68,7 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#terminal" class="nav-link">Terminal</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#achievements" class="nav-link">Achievements</a></li>
@@ -206,6 +210,41 @@
                     </div>
                     <div class="stats-container">
                         <img class="stats-card streak" src="https://streak-stats.demolab.com/?user=DevP1130&theme=radical&hide_border=true&background=1E1E1E&ring=FF6B6B&fire=FF6B6B&currStreakLabel=FF6B6B" alt="GitHub Streak" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Section -->
+        <section id="terminal" class="content-section terminal-section">
+            <div class="container">
+                <h2 class="section-title">Try the Interactive Terminal</h2>
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button close"></span>
+                            <span class="terminal-button minimize"></span>
+                            <span class="terminal-button maximize"></span>
+                        </div>
+                        <div class="terminal-title">dev@portfolio:~</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div id="terminal-output" class="terminal-output">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">Welcome to Dev's Portfolio Terminal v1.0</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-text">Type <span class="terminal-command">'help'</span> to see available commands.</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-text">Try: <span class="terminal-command">about</span>, <span class="terminal-command">skills</span>, <span class="terminal-command">experience</span>, <span class="terminal-command">projects</span></span>
+                            </div>
+                            <div class="terminal-line terminal-blank"></div>
+                        </div>
+                        <div class="terminal-input-line">
+                            <span class="terminal-prompt-symbol">$</span>
+                            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command..." />
+                        </div>
                     </div>
                 </div>
             </div>

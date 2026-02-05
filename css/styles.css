@@ -1582,6 +1582,230 @@ footer {
     height: 24px;
 }
 
+/* Terminal Section */
+.terminal-section {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.terminal-window {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.terminal-header {
+    background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+}
+
+.terminal-button.close {
+    background: #ff5f56;
+}
+
+.terminal-button.minimize {
+    background: #ffbd2e;
+}
+
+.terminal-button.maximize {
+    background: #27c93f;
+}
+
+.terminal-title {
+    color: #8b8b8b;
+    font-size: 0.875rem;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+    margin-right: 4rem;
+}
+
+.terminal-body {
+    background: #0d1117;
+    padding: 1.5rem;
+    min-height: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+}
+
+.terminal-output {
+    margin-bottom: 1rem;
+}
+
+.terminal-line {
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-line.terminal-blank {
+    margin-bottom: 0.25rem;
+}
+
+.terminal-prompt {
+    color: #58a6ff;
+    font-weight: 600;
+}
+
+.terminal-text {
+    color: #c9d1d9;
+}
+
+.terminal-command {
+    color: #7ee787;
+    font-weight: 600;
+}
+
+.terminal-error {
+    color: #f85149;
+}
+
+.terminal-success {
+    color: #3fb950;
+}
+
+.terminal-warning {
+    color: #d29922;
+}
+
+.terminal-user {
+    color: #58a6ff;
+    font-weight: 600;
+}
+
+.terminal-path {
+    color: #79c0ff;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.terminal-prompt-symbol {
+    color: #7ee787;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #c9d1d9;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.95rem;
+    outline: none;
+    caret-color: #7ee787;
+}
+
+.terminal-input::placeholder {
+    color: #484f58;
+}
+
+.terminal-input:focus {
+    outline: none;
+}
+
+/* Terminal Animation */
+@keyframes terminal-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1rem;
+    background: #7ee787;
+    margin-left: 2px;
+    animation: terminal-blink 1s infinite;
+}
+
+/* Terminal Content Styling */
+.terminal-section-header {
+    color: #58a6ff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 0.25rem;
+}
+
+.terminal-list {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.terminal-list li {
+    color: #c9d1d9;
+    margin-bottom: 0.25rem;
+}
+
+.terminal-list li::before {
+    content: "▸ ";
+    color: #7ee787;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.terminal-table {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.terminal-table td {
+    padding: 0.25rem 1rem 0.25rem 0;
+    color: #c9d1d9;
+}
+
+.terminal-table td:first-child {
+    color: #7ee787;
+    font-weight: 600;
+    min-width: 120px;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .hamburger {
@@ -1706,6 +1930,30 @@ footer {
     .back-to-top svg {
         width: 20px;
         height: 20px;
+    }
+
+    .terminal-window {
+        margin: 1rem 0 0;
+    }
+
+    .terminal-body {
+        padding: 1rem;
+        min-height: 300px;
+        max-height: 400px;
+        font-size: 0.85rem;
+    }
+
+    .terminal-header {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .terminal-button {
+        width: 10px;
+        height: 10px;
+    }
+
+    .terminal-title {
+        font-size: 0.75rem;
     }
 }
 
