@@ -385,6 +385,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     })();
 
+    // Copy to Clipboard with Toast Notification
+    (function() {
+        const copyableCards = document.querySelectorAll('.contact-card.copyable');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+        if (!copyableCards.length || !toast) return;
+
+        let toastTimeout;
+
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(function() {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        copyableCards.forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                var textToCopy = this.getAttribute('data-copy');
+                if (!textToCopy) return;
+
+                navigator.clipboard.writeText(textToCopy).then(function() {
+                    showToast('Copied "' + textToCopy + '" to clipboard!');
+
+                    card.classList.add('copied');
+                    var hint = card.querySelector('.copy-hint');
+                    if (hint) hint.textContent = 'Copied!';
+
+                    setTimeout(function() {
+                        card.classList.remove('copied');
+                        if (hint) hint.textContent = 'Click to copy';
+                    }, 2500);
+                });
+            });
+        });
+    })();
+
     // Back to Top Button
     (function() {
         const backToTopBtn = document.getElementById('backToTop');

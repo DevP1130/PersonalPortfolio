@@ -1491,6 +1491,71 @@ footer {
     height: 24px;
 }
 
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 107, 107, 0.3);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast svg {
+    color: #3fb950;
+    flex-shrink: 0;
+}
+
+/* Copy Hint */
+.copy-hint {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.contact-card.copyable {
+    position: relative;
+    cursor: pointer;
+}
+
+.contact-card.copyable:hover .copy-hint {
+    opacity: 1;
+}
+
+.contact-card.copyable.copied {
+    border-color: #3fb950;
+}
+
+.contact-card.copyable.copied .copy-hint {
+    opacity: 1;
+    color: #3fb950;
+}
+
 /* Terminal Section */
 .terminal-section {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
