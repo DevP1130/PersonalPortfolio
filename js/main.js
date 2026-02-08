@@ -802,4 +802,101 @@ document.addEventListener('DOMContentLoaded', function() {
             terminalObserver.observe(terminalSection);
         }
     })();
+
+    // Swipe Navigation (Mobile)
+    (function() {
+        // Only enable on touch devices
+        if (!('ontouchstart' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var sections = Array.from(document.querySelectorAll('section[id]'));
+        if (!sections.length) return;
+
+        var touchStartY = 0;
+        var touchStartX = 0;
+        var touchStartTime = 0;
+        var isScrolling = false;
+        var swipeCooldown = false;
+
+        var swipeIndicator = document.getElementById('swipe-indicator');
+
+        function getCurrentSectionIndex() {
+            var scrollPos = window.scrollY + window.innerHeight / 3;
+            var currentIndex = 0;
+
+            for (var i = 0; i < sections.length; i++) {
+                if (scrollPos >= sections[i].offsetTop) {
+                    currentIndex = i;
+                }
+            }
+            return currentIndex;
+        }
+
+        function scrollToSection(index) {
+            if (index < 0 || index >= sections.length) return;
+            if (swipeCooldown) return;
+
+            swipeCooldown = true;
+
+            sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Show swipe indicator
+            if (swipeIndicator) {
+                var name = sections[index].getAttribute('id');
+                name = name.charAt(0).toUpperCase() + name.slice(1);
+                swipeIndicator.textContent = name;
+                swipeIndicator.classList.add('show');
+
+                setTimeout(function() {
+                    swipeIndicator.classList.remove('show');
+                }, 1200);
+            }
+
+            setTimeout(function() {
+                swipeCooldown = false;
+            }, 800);
+        }
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+            touchStartTime = Date.now();
+            isScrolling = false;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            if (isScrolling) return;
+
+            var touchEndY = e.changedTouches[0].clientY;
+            var touchEndX = e.changedTouches[0].clientX;
+            var deltaY = touchStartY - touchEndY;
+            var deltaX = touchStartX - touchEndX;
+            var elapsed = Date.now() - touchStartTime;
+
+            // Require: vertical swipe, fast enough, long enough distance, more vertical than horizontal
+            var minSwipeDistance = 80;
+            var maxSwipeTime = 400;
+
+            if (Math.abs(deltaY) < minSwipeDistance) return;
+            if (elapsed > maxSwipeTime) return;
+            if (Math.abs(deltaX) > Math.abs(deltaY) * 0.7) return;
+
+            // Skip if user is interacting with terminal input
+            if (e.target.closest('.terminal-body')) return;
+
+            var currentIndex = getCurrentSectionIndex();
+
+            if (deltaY > 0) {
+                // Swipe up -> next section
+                scrollToSection(currentIndex + 1);
+            } else {
+                // Swipe down -> previous section
+                scrollToSection(currentIndex - 1);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function() {
+            isScrolling = true;
+        }, { passive: true });
+    })();
 });
