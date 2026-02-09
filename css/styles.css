@@ -1491,6 +1491,68 @@ footer {
     height: 24px;
 }
 
+/* Interests Section */
+.interests-intro {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.interest-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.interest-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.15);
+}
+
+.interest-icon {
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interest-icon svg {
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.interest-card:hover .interest-icon svg {
+    transform: scale(1.15);
+}
+
+.interest-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.interest-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
 /* Swipe Section Indicator */
 .swipe-indicator {
     position: fixed;
@@ -1935,6 +1997,28 @@ footer {
     .back-to-top svg {
         width: 20px;
         height: 20px;
+    }
+
+    .interests-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .interest-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .interest-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .interest-name {
+        font-size: 1rem;
+    }
+
+    .interest-desc {
+        font-size: 0.8rem;
     }
 
     .terminal-window {
