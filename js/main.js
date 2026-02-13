@@ -479,6 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <tr><td>education</td><td>View my education background</td></tr>
                             <tr><td>projects</td><td>Browse my projects</td></tr>
                             <tr><td>achievements</td><td>See my accomplishments</td></tr>
+                            <tr><td>interests</td><td>See my personal hobbies and interests</td></tr>
                             <tr><td>contact</td><td>Get my contact information</td></tr>
                             <tr><td>social</td><td>View my social media links</td></tr>
                             <tr><td>resume</td><td>Download my resume</td></tr>
@@ -704,6 +705,40 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     `;
                 }
+            }
+        };
+
+        commands.interests = {
+            description: 'See my personal hobbies and interests',
+            execute: () => {
+                return `
+                        <div class="terminal-section-header">Beyond Code</div>
+
+                        <div class="terminal-text">
+                            <span class="terminal-command">Basketball</span><br>
+                            Love hitting the court for pickup games and following the NBA season.
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Tennis</span><br>
+                            7.2 UTR player. From the court to the US Open ball crew - tennis is a big part of my life.
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Watching Sports</span><br>
+                            Always tuned into game day - from basketball to football to tennis.
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Music</span><br>
+                            Always have my headphones on - music keeps me focused and motivated.
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Working Out</span><br>
+                            Staying disciplined in the gym - building strength for both body and mind.
+                        </div>
+                    `;
             }
         };
 
