@@ -385,6 +385,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     })();
 
+    // Haptic Feedback (Mobile)
+    (function() {
+        if (!navigator.vibrate) return;
+
+        var hapticTargets = document.querySelectorAll(
+            '.btn, .btn-resume, .contact-card, .nav-link, .hamburger, ' +
+            '.back-to-top, .interest-card, .project-card, .accomplishment-card, ' +
+            '.indicator-dot'
+        );
+
+        hapticTargets.forEach(function(el) {
+            el.addEventListener('touchstart', function() {
+                navigator.vibrate(10);
+            }, { passive: true });
+        });
+    })();
+
     // Copy to Clipboard with Toast Notification
     (function() {
         const copyableCards = document.querySelectorAll('.contact-card.copyable');
