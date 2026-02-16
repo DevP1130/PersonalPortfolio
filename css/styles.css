@@ -954,16 +954,19 @@ code, pre, .code {
 }
 
 .skills-category-modern {
-    background-color: var(--bg-card);
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 .skills-category-modern:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.4);
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
 }
 
 .category-header {
@@ -1049,16 +1052,20 @@ code, pre, .code {
 }
 
 .project-card {
-    background-color: var(--bg-card);
-    border-radius: 8px;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent);
+    border-color: rgba(255, 107, 107, 0.4);
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
 }
 
 .project-image {
@@ -1131,10 +1138,12 @@ code, pre, .code {
 }
 
 .contact-card {
-    background-color: var(--bg-card);
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -1144,8 +1153,10 @@ code, pre, .code {
 }
 
 .contact-card:hover {
-    border-color: var(--accent);
+    border-color: rgba(255, 107, 107, 0.4);
     transform: translateY(-5px);
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
 }
 
 .contact-icon {
@@ -1349,10 +1360,12 @@ code, pre, .code {
 }
 
 .accomplishment-card {
-    background-color: var(--bg-card);
-    border-radius: 8px;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
     padding: 2rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
     display: flex;
     gap: 1.5rem;
@@ -1361,7 +1374,9 @@ code, pre, .code {
 
 .accomplishment-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent);
+    border-color: rgba(255, 107, 107, 0.4);
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
 }
 
 .accomplishment-icon {
@@ -1509,8 +1524,10 @@ footer {
 }
 
 .interest-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 2rem 1.5rem;
     text-align: center;
@@ -1520,8 +1537,9 @@ footer {
 
 .interest-card:hover {
     transform: translateY(-8px);
-    border-color: var(--accent);
-    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.15);
+    border-color: rgba(255, 107, 107, 0.4);
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
 }
 
 .interest-icon {
