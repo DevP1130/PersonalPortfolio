@@ -855,6 +855,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })();
 
+    // Parallax Scrolling
+    (function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (window.innerWidth <= 768) return;
+
+        var shapes = document.querySelectorAll('.parallax-shape[data-speed]');
+        if (!shapes.length) return;
+
+        var ticking = false;
+
+        function updateParallax() {
+            var scrollY = window.scrollY;
+
+            shapes.forEach(function(shape) {
+                var speed = parseFloat(shape.getAttribute('data-speed'));
+                var yOffset = scrollY * speed;
+                var baseTransform = shape.style.transform || '';
+
+                // Preserve rotation if it exists
+                var rotation = '';
+                var match = window.getComputedStyle(shape).transform;
+                if (shape.classList.contains('parallax-square-1')) {
+                    rotation = ' rotate(45deg)';
+                } else if (shape.classList.contains('parallax-square-2')) {
+                    rotation = ' rotate(20deg)';
+                } else if (shape.classList.contains('parallax-diamond-1')) {
+                    rotation = ' rotate(45deg)';
+                }
+
+                shape.style.transform = 'translateY(' + yOffset + 'px)' + rotation;
+            });
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
+        updateParallax();
+    })();
+
     // Swipe Navigation (Mobile)
     (function() {
         // Only enable on touch devices
