@@ -1,3 +1,10 @@
+// Theme: apply saved preference immediately to prevent flash
+(function() {
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+    }
+})();
+
 // Animated Background Particles
 (function() {
     const particlesContainer = document.querySelector('.bg-particles');
@@ -60,6 +67,18 @@
 
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Theme Toggle
+    (function() {
+        var toggleBtn = document.getElementById('theme-toggle');
+        if (!toggleBtn) return;
+
+        toggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            var isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+    })();
 
     // Dynamic Greeting
     (function() {
