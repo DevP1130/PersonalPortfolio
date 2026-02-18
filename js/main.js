@@ -61,6 +61,27 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Dynamic Greeting
+    (function() {
+        var greetingEl = document.getElementById('hero-greeting');
+        if (!greetingEl) return;
+
+        var hour = new Date().getHours();
+        var greeting;
+
+        if (hour >= 5 && hour < 12) {
+            greeting = '🌅 Good Morning';
+        } else if (hour >= 12 && hour < 17) {
+            greeting = '☀️ Good Afternoon';
+        } else if (hour >= 17 && hour < 21) {
+            greeting = '🌇 Good Evening';
+        } else {
+            greeting = '🌙 Good Night';
+        }
+
+        greetingEl.textContent = greeting;
+    })();
+
     // Typing Animation
     (function() {
         const typingTextEl = document.querySelector('.typing-text');
