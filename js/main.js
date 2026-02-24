@@ -5,6 +5,13 @@
     }
 })();
 
+// Register Service Worker (PWA)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {});
+    });
+}
+
 // Animated Background Particles
 (function() {
     const particlesContainer = document.querySelector('.bg-particles');

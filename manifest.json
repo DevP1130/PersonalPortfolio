@@ -1,0 +1,26 @@
+{
+  "name": "Dev Patel | Portfolio",
+  "short_name": "Dev Patel",
+  "description": "CS Student at Georgia Tech specializing in Software Engineering, Machine Learning, and AI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#FF6B6B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["portfolio", "education", "productivity"]
+}
