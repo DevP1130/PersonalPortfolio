@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block build artifacts and config files
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.gitignore
+
+# Sitemap location
+Sitemap: https://devp1130.github.io/sitemap.xml
