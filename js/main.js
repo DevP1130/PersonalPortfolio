@@ -673,6 +673,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">3. GT-Yellow Jacked</span><br>
+                            • Next.js, TypeScript, Firestore, Capacitor<br>
+                            • Modular type-safe CRUD hooks for web and mobile<br>
+                            • Strongly typed third-party exercise API pipeline
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
                             <span class="terminal-success">Tip:</span> Check out the Projects section for more details!
                         </div>
                     `;
