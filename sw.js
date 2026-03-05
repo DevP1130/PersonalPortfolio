@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dev-patel-portfolio-v1';
+const CACHE_NAME = 'dev-patel-portfolio-v2';
 
 const ASSETS_TO_CACHE = [
     '/',
