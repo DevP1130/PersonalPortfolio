@@ -1050,4 +1050,65 @@ document.addEventListener('DOMContentLoaded', function() {
             isScrolling = true;
         }, { passive: true });
     })();
+
+    // Pull to Refresh
+    (function() {
+        var ptr = document.getElementById('ptr-indicator');
+        var ptrLabel = ptr ? ptr.querySelector('.ptr-label') : null;
+        var ptrSpinner = ptr ? ptr.querySelector('.ptr-spinner') : null;
+        var ptrStartY = 0;
+        var ptrActive = false;
+        var ptrTriggered = false;
+        var THRESHOLD = 80;
+
+        if (!ptr) return;
+
+        document.addEventListener('touchstart', function(e) {
+            if (window.scrollY === 0) {
+                ptrStartY = e.touches[0].clientY;
+                ptrActive = true;
+                ptrTriggered = false;
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!ptrActive || window.scrollY > 0) return;
+            var pull = Math.min(e.touches[0].clientY - ptrStartY, THRESHOLD + 20);
+            if (pull <= 0) return;
+
+            // Rotate spinner proportionally to pull distance
+            var rotate = (pull / THRESHOLD) * 270;
+            if (ptrSpinner) ptrSpinner.style.transform = 'rotate(' + rotate + 'deg)';
+
+            // Move indicator down
+            ptr.style.transform = 'translateX(-50%) translateY(' + (pull - 80) + 'px)';
+
+            if (pull >= THRESHOLD) {
+                ptr.classList.add('ptr-ready');
+                if (ptrLabel) ptrLabel.textContent = 'Release to refresh';
+                ptrTriggered = true;
+            } else {
+                ptr.classList.remove('ptr-ready');
+                if (ptrLabel) ptrLabel.textContent = 'Pull to refresh';
+                ptrTriggered = false;
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', function() {
+            if (!ptrActive) return;
+            ptrActive = false;
+
+            if (ptrTriggered) {
+                ptr.classList.add('ptr-refreshing');
+                ptr.classList.remove('ptr-ready');
+                if (ptrLabel) ptrLabel.textContent = 'Refreshing…';
+                if (ptrSpinner) ptrSpinner.style.transform = '';
+                setTimeout(function() { location.reload(); }, 800);
+            } else {
+                ptr.style.transform = 'translateX(-50%) translateY(-80px)';
+                if (ptrSpinner) ptrSpinner.style.transform = '';
+                ptr.classList.remove('ptr-ready');
+            }
+        }, { passive: true });
+    })();
 });

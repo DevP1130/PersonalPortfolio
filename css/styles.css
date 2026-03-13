@@ -1532,6 +1532,55 @@ code, pre, .code {
     color: var(--accent);
 }
 
+/* Pull to Refresh */
+.ptr-indicator {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    padding: 0.6rem 1.2rem;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+    pointer-events: none;
+}
+
+.ptr-indicator.ptr-ready {
+    border-color: rgba(255, 107, 107, 0.7);
+}
+
+.ptr-indicator.ptr-refreshing {
+    transform: translateX(-50%) translateY(0px) !important;
+}
+
+.ptr-spinner {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.ptr-indicator.ptr-refreshing .ptr-spinner {
+    animation: ptrSpin 0.7s linear infinite;
+}
+
+@keyframes ptrSpin {
+    to { transform: rotate(360deg); }
+}
+
+.ptr-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
 /* Footer */
 footer {
     background-color: var(--bg-secondary);
