@@ -1051,6 +1051,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
     })();
 
+    // Keyboard Navigation (← → arrow keys)
+    (function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var sections = Array.from(document.querySelectorAll('section[id]'));
+        if (!sections.length) return;
+
+        var cooldown = false;
+        var swipeIndicator = document.getElementById('swipe-indicator');
+
+        function getCurrentIndex() {
+            var scrollPos = window.scrollY + window.innerHeight / 3;
+            var idx = 0;
+            for (var i = 0; i < sections.length; i++) {
+                if (scrollPos >= sections[i].offsetTop) idx = i;
+            }
+            return idx;
+        }
+
+        function goToSection(index) {
+            if (index < 0 || index >= sections.length || cooldown) return;
+            cooldown = true;
+
+            sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            if (swipeIndicator) {
+                var name = sections[index].getAttribute('id');
+                name = name.charAt(0).toUpperCase() + name.slice(1);
+                swipeIndicator.textContent = '→ ' + name;
+                swipeIndicator.classList.add('show');
+                setTimeout(function() { swipeIndicator.classList.remove('show'); }, 1200);
+            }
+
+            setTimeout(function() { cooldown = false; }, 800);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            // Don't hijack keys when typing in an input or the terminal
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.target.closest('.terminal-body')) return;
+            // Don't fire on modifier combos (Cmd+K etc.)
+            if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                goToSection(getCurrentIndex() + 1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                goToSection(getCurrentIndex() - 1);
+            }
+        });
+    })();
+
     // Pull to Refresh
     (function() {
         var ptr = document.getElementById('ptr-indicator');
