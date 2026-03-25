@@ -75,6 +75,59 @@ if ('serviceWorker' in navigator) {
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Scroll-triggered Number Counters
+    (function() {
+        var counters = document.querySelectorAll('.count-up');
+        if (!counters.length) return;
+
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function animateCounter(el) {
+            var target   = parseFloat(el.dataset.target);
+            var decimals = parseInt(el.dataset.decimals) || 0;
+            var suffix   = el.dataset.suffix || '';
+            var format   = el.dataset.format || '';
+            var duration = 1400;
+            var start    = null;
+
+            function format_num(val) {
+                var fixed = val.toFixed(decimals);
+                if (format === 'comma') {
+                    fixed = parseFloat(fixed).toLocaleString('en-US', { maximumFractionDigits: decimals });
+                }
+                return fixed + suffix;
+            }
+
+            if (reduced) {
+                el.textContent = format_num(target);
+                return;
+            }
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                var progress = Math.min((timestamp - start) / duration, 1);
+                // Ease out cubic
+                var ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = format_num(ease * target);
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = format_num(target);
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(function(el) { observer.observe(el); });
+    })();
+
     // Theme Toggle
     (function() {
         var toggleBtn = document.getElementById('theme-toggle');
