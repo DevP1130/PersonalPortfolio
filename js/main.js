@@ -72,6 +72,46 @@ if ('serviceWorker' in navigator) {
     }, 4000);
 })();
 
+// Page Load Stagger Animation
+(function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var sequence = [
+        'nav',
+        '.section-indicators',
+        '#hero-greeting',
+        '.hero-title',
+        '.hero-typing',
+        '.btn-resume',
+        '.scroll-indicator'
+    ];
+
+    // Hide immediately (loader covers page so no flicker)
+    sequence.forEach(function(sel) {
+        var el = document.querySelector(sel);
+        if (el) el.classList.add('page-reveal');
+    });
+
+    var revealed = false;
+    function revealAll() {
+        if (revealed) return;
+        revealed = true;
+        sequence.forEach(function(sel, i) {
+            setTimeout(function() {
+                var el = document.querySelector(sel);
+                if (el) el.classList.add('page-reveal-in');
+            }, i * 110);
+        });
+    }
+
+    // Trigger right when loader starts fading (2000ms matches loader JS)
+    window.addEventListener('load', function() {
+        setTimeout(revealAll, 2000);
+    });
+    // Fallback if load event is late
+    setTimeout(revealAll, 4500);
+})();
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
 
