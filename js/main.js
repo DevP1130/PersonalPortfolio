@@ -845,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
             resume: {
                 description: 'Download my resume',
                 execute: () => {
-                    window.open('assets/Dev Patel Resume.pdf', '_blank');
+                    window.open('assets/Dev_Patel_Resume.pdf', '_blank');
                     return `
                         <div class="terminal-text">
                             <span class="terminal-success">✓</span> Opening resume in a new tab...
