@@ -682,7 +682,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="terminal-text" style="margin-top: 0.5rem;">
                             <span class="terminal-command">Tools & Platforms:</span><br>
                             Git, Docker, Linux, MongoDB, Nix, PyCharm,
-                            Google ADK, Video Intelligence API
+                            Google ADK, Video Intelligence API, Microsoft Office
                         </div>
                     `;
                 }
@@ -694,24 +694,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="terminal-section-header">Work Experience</div>
 
                         <div class="terminal-text">
-                            <span class="terminal-command">New York Life - Software Engineer Intern</span><br>
-                            Jun 2026 - Aug 2026 (Incoming)<br>
-                            • Incoming Software Engineering internship<br>
+                            <span class="terminal-command">New York Life Securities - Software Engineering Intern</span><br>
+                            May 2026 - Present (Incoming)<br>
+                            • Incoming Summer 2026<br>
                             • New York, NY
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">HyTech Racing - Software Engineer</span><br>
-                            Aug 2025 - Present<br>
-                            • Working with C++, Simulink, and embedded systems<br>
-                            • Developing software for electric racing vehicles
-                        </div>
-
-                        <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">Photon Insights - AI/ML Intern</span><br>
+                            <span class="terminal-command">Photon Insights - Software Engineering Intern</span><br>
                             Jul 2024 - Aug 2025<br>
-                            • Specialized in AI, NLP, and LLM applications<br>
-                            • Built intelligent systems for data analysis
+                            • Built modular Java/REST API data pipelines, reducing processing latency by ~35%<br>
+                            • Integrated embedding-based search and NLP models, improving classification accuracy by 27%
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
@@ -820,7 +813,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return `
                         <div class="terminal-section-header">Contact Information</div>
                         <table class="terminal-table">
-                            <tr><td>Email:</td><td>devjpatel.30@gmail.com</td></tr>
+                            <tr><td>Email:</td><td>dpatel878@gatech.edu</td></tr>
                             <tr><td>Phone:</td><td>848-667-9589</td></tr>
                             <tr><td>Location:</td><td>North Brunswick, NJ</td></tr>
                             <tr><td>LinkedIn:</td><td>linkedin.com/in/Dev-Patel</td></tr>
