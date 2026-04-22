@@ -694,6 +694,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="terminal-section-header">Work Experience</div>
 
                         <div class="terminal-text">
+                            <span class="terminal-command">New York Life - Software Engineer Intern</span><br>
+                            Jun 2026 - Aug 2026 (Incoming)<br>
+                            • Incoming Software Engineering internship<br>
+                            • New York, NY
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
                             <span class="terminal-command">HyTech Racing - Software Engineer</span><br>
                             Aug 2025 - Present<br>
                             • Working with C++, Simulink, and embedded systems<br>
