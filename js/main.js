@@ -708,17 +708,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">NJIT Bader Research Group - Research Assistant</span><br>
+                            <span class="terminal-command">NJIT Bader Research Group - Research Intern</span><br>
                             Jun - Aug 2024<br>
-                            • Developed Monte Carlo algorithms for research<br>
-                            • Published findings in academic journals
+                            • Implemented MC1, MC2, MC3 Monte Carlo algorithms for large-scale spatio-temporal data<br>
+                            • Integrated DBSCAN for cluster detection and optimized performance with advanced pruning
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">Finplex - AI Engineer</span><br>
+                            <span class="terminal-command">Finplex - Machine Learning Intern</span><br>
                             May - Dec 2024<br>
-                            • Built NLP-based document classification systems<br>
-                            • Automated financial document processing
+                            • Built document parsing microservice with Python and Docker for unstructured bank loan docs<br>
+                            • Integrated NLP pipelines with LLMs via Ollama, improving accuracy by ~25%
                         </div>
                     `;
                 }
@@ -816,7 +816,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <tr><td>Email:</td><td>dpatel878@gatech.edu</td></tr>
                             <tr><td>Phone:</td><td>848-667-9589</td></tr>
                             <tr><td>Location:</td><td>North Brunswick, NJ</td></tr>
-                            <tr><td>LinkedIn:</td><td>linkedin.com/in/Dev-Patel</td></tr>
+                            <tr><td>LinkedIn:</td><td>linkedin.com/in/dev-patel-642504240</td></tr>
                             <tr><td>GitHub:</td><td>github.com/DevP1130</td></tr>
                         </table>
                     `;
@@ -835,8 +835,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <div class="terminal-text" style="margin-top: 0.5rem;">
                             <span class="terminal-command">LinkedIn:</span>
-                            <a href="https://linkedin.com/in/Dev-Patel" target="_blank" style="color: #58a6ff;">
-                                linkedin.com/in/Dev-Patel
+                            <a href="https://www.linkedin.com/in/dev-patel-642504240/" target="_blank" style="color: #58a6ff;">
+                                linkedin.com/in/dev-patel-642504240
                             </a>
                         </div>
                     `;
@@ -845,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
             resume: {
                 description: 'Download my resume',
                 execute: () => {
-                    window.open('assets/Dev_Patel_Resume.pdf', '_blank');
+                    window.open('assets/Dev_Resume.pdf', '_blank');
                     return `
                         <div class="terminal-text">
                             <span class="terminal-success">✓</span> Opening resume in a new tab...

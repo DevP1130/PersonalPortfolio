@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dev-patel-portfolio-v2';
+const CACHE_NAME = 'dev-patel-portfolio-v3';
 
 const ASSETS_TO_CACHE = [
     '/',
@@ -6,7 +6,7 @@ const ASSETS_TO_CACHE = [
     '/css/styles.css',
     '/js/main.js',
     '/assets/favicon.svg',
-    '/assets/Dev Patel Resume.pdf',
+    '/assets/Dev_Resume.pdf',
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap'
 ];
 
