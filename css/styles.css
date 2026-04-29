@@ -577,6 +577,11 @@ code, pre, .code {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+body.light-mode .navbar.scrolled {
+    background-color: rgba(245, 245, 245, 0.92);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -2345,4 +2350,22 @@ footer {
     .content-section {
         padding: 3rem 1rem;
     }
+}
+
+/* Light mode: glass-morphism card overrides */
+body.light-mode .project-card,
+body.light-mode .accomplishment-card,
+body.light-mode .contact-card,
+body.light-mode .skills-category-modern {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .project-card:hover,
+body.light-mode .accomplishment-card:hover,
+body.light-mode .contact-card:hover,
+body.light-mode .skills-category-modern:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(224, 82, 82, 0.4);
+    box-shadow: 0 8px 32px rgba(224, 82, 82, 0.12);
 }

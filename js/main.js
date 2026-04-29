@@ -912,6 +912,10 @@ document.addEventListener('DOMContentLoaded', function() {
             execute: () => commands.help.execute()
         };
 
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
         // Execute command
         function executeCommand(input) {
             const trimmedInput = input.trim().toLowerCase();
@@ -922,8 +926,8 @@ document.addEventListener('DOMContentLoaded', function() {
             commandHistory.push(input);
             historyIndex = commandHistory.length;
 
-            // Display command
-            addOutput(`<span class="terminal-prompt-symbol">$</span> <span class="terminal-text">${input}</span>`);
+            // Display command (escape user input before inserting into DOM)
+            addOutput(`<span class="terminal-prompt-symbol">$</span> <span class="terminal-text">${escapeHtml(input)}</span>`);
 
             // Execute command
             if (commands[trimmedInput]) {
@@ -932,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     addOutput(result);
                 }
             } else {
-                addOutput(`<span class="terminal-error">Command not found: ${trimmedInput}</span>`);
+                addOutput(`<span class="terminal-error">Command not found: ${escapeHtml(trimmedInput)}</span>`);
                 addOutput(`<span class="terminal-text">Type <span class="terminal-command">'help'</span> to see available commands.</span>`);
             }
         }
