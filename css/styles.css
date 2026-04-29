@@ -2369,3 +2369,32 @@ body.light-mode .skills-category-modern:hover {
     border-color: rgba(224, 82, 82, 0.4);
     box-shadow: 0 8px 32px rgba(224, 82, 82, 0.12);
 }
+
+/* Keyboard focus indicators */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.nav-link:focus-visible,
+.logo:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.btn-resume:focus-visible,
+.contact-card:focus-visible,
+.project-card:focus-visible,
+.accomplishment-card:focus-visible,
+.indicator-dot:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 8px;
+}

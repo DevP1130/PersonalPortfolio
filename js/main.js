@@ -12,13 +12,15 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Animated Background Particles
 (function() {
     const particlesContainer = document.querySelector('.bg-particles');
     if (!particlesContainer) return;
 
     // Check for reduced motion preference
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (prefersReducedMotion) return;
 
     const particleCount = 25;
 
@@ -74,7 +76,7 @@ if ('serviceWorker' in navigator) {
 
 // Page Load Stagger Animation
 (function() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (prefersReducedMotion) return;
 
     var sequence = [
         'nav',
@@ -120,8 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var counters = document.querySelectorAll('.count-up');
         if (!counters.length) return;
 
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         function animateCounter(el) {
             var target   = parseFloat(el.dataset.target);
             var decimals = parseInt(el.dataset.decimals) || 0;
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return fixed + suffix;
             }
 
-            if (reduced) {
+            if (prefersReducedMotion) {
                 el.textContent = format_num(target);
                 return;
             }
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Check for reduced motion
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (prefersReducedMotion) {
             typingTextEl.textContent = phrases[0];
         } else {
             setTimeout(type, 1500);
@@ -408,9 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Scroll snap section focus effect
     const snapSections = document.querySelectorAll('.hero, .content-section');
-    const prefersReducedMotionSnap = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!prefersReducedMotionSnap) {
+    if (!prefersReducedMotion) {
         snapSections.forEach(section => section.classList.add('snap-section'));
 
         const sectionObserver = new IntersectionObserver((entries) => {
@@ -454,9 +452,6 @@ document.addEventListener('DOMContentLoaded', function() {
     animateElements.forEach(el => {
         el.classList.add('animate-on-scroll');
     });
-
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
         const scrollObserver = new IntersectionObserver((entries) => {
@@ -1008,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Parallax Scrolling
     (function() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (prefersReducedMotion) return;
         if (window.innerWidth <= 768) return;
 
         var shapes = document.querySelectorAll('.parallax-shape[data-speed]');
@@ -1055,7 +1050,7 @@ document.addEventListener('DOMContentLoaded', function() {
     (function() {
         // Only enable on touch devices
         if (!('ontouchstart' in window)) return;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (prefersReducedMotion) return;
 
         var sections = Array.from(document.querySelectorAll('section[id]'));
         if (!sections.length) return;
@@ -1150,7 +1145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Keyboard Navigation (← → arrow keys)
     (function() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (prefersReducedMotion) return;
 
         var sections = Array.from(document.querySelectorAll('section[id]'));
         if (!sections.length) return;

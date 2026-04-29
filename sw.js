@@ -7,6 +7,9 @@ const ASSETS_TO_CACHE = [
     '/js/main.js',
     '/assets/favicon.svg',
     '/assets/Dev_Resume.pdf',
+    '/assets/OpenWide.jpg.webp',
+    '/assets/ArenaVision.png',
+    '/assets/GTWebDev.png.jpeg',
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap'
 ];
 
