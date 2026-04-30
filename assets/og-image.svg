@@ -53,6 +53,12 @@
   <rect x="490" y="410" width="60" height="36" rx="18" fill="#FF6B6B" opacity="0.15"/>
   <text x="520" y="433" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#FF6B6B" text-anchor="middle">C++</text>
 
+  <rect x="564" y="410" width="118" height="36" rx="18" fill="#FF6B6B" opacity="0.15"/>
+  <text x="623" y="433" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#FF6B6B" text-anchor="middle">TypeScript</text>
+
+  <rect x="696" y="410" width="90" height="36" rx="18" fill="#FF6B6B" opacity="0.15"/>
+  <text x="741" y="433" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#FF6B6B" text-anchor="middle">Next.js</text>
+
   <!-- URL -->
   <text x="104" y="550" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#555555">devp1130.github.io</text>
 </svg>
