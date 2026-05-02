@@ -573,6 +573,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         card.classList.remove('copied');
                         if (hint) hint.textContent = 'Click to copy';
                     }, 2500);
+                }).catch(function() {
+                    showToast('Could not copy — please copy manually.');
                 });
             });
         });
@@ -690,8 +692,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         <div class="terminal-text">
                             <span class="terminal-command">New York Life Securities - Software Engineering Intern</span><br>
-                            May 2026 - Present (Incoming)<br>
-                            • Incoming Summer 2026<br>
+                            May 2026 - Present<br>
                             • New York, NY
                         </div>
 
@@ -808,7 +809,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return `
                         <div class="terminal-section-header">Contact Information</div>
                         <table class="terminal-table">
-                            <tr><td>Email:</td><td>dpatel878@gatech.edu</td></tr>
+                            <tr><td>Email:</td><td>devjpatel.30@gmail.com</td></tr>
                             <tr><td>Phone:</td><td>848-667-9589</td></tr>
                             <tr><td>Location:</td><td>North Brunswick, NJ</td></tr>
                             <tr><td>LinkedIn:</td><td>linkedin.com/in/dev-patel-642504240</td></tr>
