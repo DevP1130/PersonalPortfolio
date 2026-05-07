@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dev-patel-portfolio-v3';
+const CACHE_NAME = 'dev-patel-portfolio-v4';
 
 const ASSETS_TO_CACHE = [
     '/',
@@ -9,8 +9,7 @@ const ASSETS_TO_CACHE = [
     '/assets/Dev_Resume.pdf',
     '/assets/OpenWide.jpg.webp',
     '/assets/ArenaVision.png',
-    '/assets/GTWebDev.png.jpeg',
-    'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap'
+    '/assets/GTWebDev.png.jpeg'
 ];
 
 // Install: cache all core assets

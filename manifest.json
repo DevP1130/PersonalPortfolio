@@ -15,12 +15,5 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "assets/og-image.svg",
-      "sizes": "1200x630",
-      "type": "image/svg+xml"
-    }
-  ],
   "categories": ["portfolio", "education", "productivity"]
 }

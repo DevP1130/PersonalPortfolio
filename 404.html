@@ -182,9 +182,26 @@
             .error-code, .terminal-window, .home-btn { animation: none; opacity: 1; }
             .cursor { animation: none; }
         }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            z-index: 10000;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 0 0 8px 0;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="bg-animation">
         <div class="bg-orb bg-orb-1"></div>
@@ -192,7 +209,7 @@
         <div class="bg-orb bg-orb-3"></div>
     </div>
 
-    <div class="container">
+    <div class="container" id="main-content">
         <div class="error-code">404</div>
 
         <div class="terminal-window">
