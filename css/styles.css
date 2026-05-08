@@ -315,6 +315,8 @@
     --accent: #FF6B6B;
     --accent-hover: #ff5252;
     --accent-rgb: 255, 107, 107;
+    --bg-glass: rgba(30, 30, 30, 0.6);
+    --bg-glass-hover: rgba(30, 30, 30, 0.75);
     --border-color: #3a3a3a;
 }
 
@@ -328,6 +330,8 @@ body.light-mode {
     --accent: #e05252;
     --accent-hover: #c94444;
     --accent-rgb: 224, 82, 82;
+    --bg-glass: rgba(255, 255, 255, 0.8);
+    --bg-glass-hover: rgba(255, 255, 255, 0.95);
     --border-color: #e0e0e0;
 }
 
@@ -1011,7 +1015,7 @@ body.light-mode .navbar.scrolled {
 }
 
 .skills-category-modern {
-    background: rgba(30, 30, 30, 0.6);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
@@ -1022,7 +1026,7 @@ body.light-mode .navbar.scrolled {
 
 .skills-category-modern:hover {
     border-color: rgba(var(--accent-rgb), 0.4);
-    background: rgba(30, 30, 30, 0.75);
+    background: var(--bg-glass-hover);
     box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.1);
 }
 
@@ -1104,7 +1108,7 @@ body.light-mode .navbar.scrolled {
 
 
 .project-card {
-    background: rgba(30, 30, 30, 0.6);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
@@ -1116,7 +1120,7 @@ body.light-mode .navbar.scrolled {
 .project-card:hover {
     transform: translateY(-5px);
     border-color: rgba(var(--accent-rgb), 0.4);
-    background: rgba(30, 30, 30, 0.75);
+    background: var(--bg-glass-hover);
     box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.1);
 }
 
@@ -1189,7 +1193,7 @@ body.light-mode .navbar.scrolled {
 }
 
 .contact-card {
-    background: rgba(30, 30, 30, 0.6);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
@@ -1206,7 +1210,7 @@ body.light-mode .navbar.scrolled {
 .contact-card:hover {
     border-color: rgba(var(--accent-rgb), 0.4);
     transform: translateY(-5px);
-    background: rgba(30, 30, 30, 0.75);
+    background: var(--bg-glass-hover);
     box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.1);
 }
 
@@ -1411,7 +1415,7 @@ body.light-mode .navbar.scrolled {
 }
 
 .accomplishment-card {
-    background: rgba(30, 30, 30, 0.6);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
@@ -1426,7 +1430,7 @@ body.light-mode .navbar.scrolled {
 .accomplishment-card:hover {
     transform: translateY(-5px);
     border-color: rgba(var(--accent-rgb), 0.4);
-    background: rgba(30, 30, 30, 0.75);
+    background: var(--bg-glass-hover);
     box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.1);
 }
 
@@ -1624,7 +1628,7 @@ footer {
 }
 
 .interest-card {
-    background: rgba(30, 30, 30, 0.6);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1638,7 +1642,7 @@ footer {
 .interest-card:hover {
     transform: translateY(-8px);
     border-color: rgba(var(--accent-rgb), 0.4);
-    background: rgba(30, 30, 30, 0.75);
+    background: var(--bg-glass-hover);
     box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.1);
 }
 
@@ -2310,47 +2314,36 @@ body.light-mode .terminal-section {
 body.light-mode .project-card,
 body.light-mode .accomplishment-card,
 body.light-mode .contact-card,
-body.light-mode .skills-category-modern {
-    background: rgba(255, 255, 255, 0.8);
+body.light-mode .skills-category-modern,
+body.light-mode .interest-card {
     border-color: rgba(0, 0, 0, 0.08);
 }
 
 body.light-mode .project-card:hover,
 body.light-mode .accomplishment-card:hover,
 body.light-mode .contact-card:hover,
-body.light-mode .skills-category-modern:hover {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(224, 82, 82, 0.4);
-    box-shadow: 0 8px 32px rgba(224, 82, 82, 0.12);
-}
-
-body.light-mode .interest-card {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
+body.light-mode .skills-category-modern:hover,
 body.light-mode .interest-card:hover {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(224, 82, 82, 0.4);
-    box-shadow: 0 8px 32px rgba(224, 82, 82, 0.12);
+    border-color: rgba(var(--accent-rgb), 0.4);
+    box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.12);
 }
 
 body.light-mode .ptr-indicator {
     background: rgba(245, 245, 245, 0.92);
-    border-color: rgba(224, 82, 82, 0.3);
+    border-color: rgba(var(--accent-rgb), 0.3);
     color: var(--text-primary);
 }
 
 body.light-mode .swipe-indicator {
     background: rgba(245, 245, 245, 0.92);
     color: var(--text-primary);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(224, 82, 82, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(var(--accent-rgb), 0.2);
 }
 
 body.light-mode .toast {
     background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
     color: var(--text-primary);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(224, 82, 82, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(var(--accent-rgb), 0.2);
 }
 
 body.light-mode .skill-tag,
@@ -2360,7 +2353,7 @@ body.light-mode .interests-list li {
 
 body.light-mode .skill-tag::before,
 body.light-mode .interests-list li::before {
-    background: linear-gradient(90deg, transparent, rgba(224, 82, 82, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.15), transparent);
 }
 
 /* Skip to main content link */
