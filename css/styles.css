@@ -317,6 +317,7 @@
     --accent-rgb: 255, 107, 107;
     --bg-glass: rgba(30, 30, 30, 0.6);
     --bg-glass-hover: rgba(30, 30, 30, 0.75);
+    --bg-glass-mid: var(--bg-glass-mid);
     --border-color: #3a3a3a;
 }
 
@@ -332,6 +333,7 @@ body.light-mode {
     --accent-rgb: 224, 82, 82;
     --bg-glass: rgba(255, 255, 255, 0.8);
     --bg-glass-hover: rgba(255, 255, 255, 0.95);
+    --bg-glass-mid: rgba(245, 245, 245, 0.9);
     --border-color: #e0e0e0;
 }
 
@@ -974,7 +976,7 @@ body.light-mode .navbar.scrolled {
 .interests-list li {
     padding: 0.6rem 1.25rem;
     color: var(--text-primary);
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 30, 30, 0.8) 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-glass-mid) 100%);
     border: 1px solid var(--border-color);
     border-radius: 50px;
     font-size: 0.95rem;
@@ -1065,7 +1067,7 @@ body.light-mode .navbar.scrolled {
 }
 
 .skill-tag {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 30, 30, 0.8) 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-glass-mid) 100%);
     color: var(--text-primary);
     padding: 0.6rem 1.2rem;
     border-radius: 20px;
@@ -2346,10 +2348,6 @@ body.light-mode .toast {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(var(--accent-rgb), 0.2);
 }
 
-body.light-mode .skill-tag,
-body.light-mode .interests-list li {
-    background: linear-gradient(135deg, #ffffff 0%, rgba(245, 245, 245, 0.9) 100%);
-}
 
 body.light-mode .skill-tag::before,
 body.light-mode .interests-list li::before {
