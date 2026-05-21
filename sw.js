@@ -1,9 +1,9 @@
-const CACHE_NAME = 'dev-patel-portfolio-v4';
+const CACHE_NAME = 'dev-patel-portfolio-v5';
 
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
-    '/css/styles.css',
+    '/css/styles.css?v=5',
     '/js/main.js',
     '/assets/favicon.svg',
     '/assets/Dev_Resume.pdf',
