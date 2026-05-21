@@ -339,7 +339,7 @@ body.light-mode {
 
 body.light-mode .navbar {
     background: rgba(245, 245, 245, 0.92);
-    border-bottom-color: #e0e0e0;
+    border-bottom-color: var(--border-color);
 }
 
 body.light-mode .bg-orb {
@@ -2008,10 +2008,6 @@ body.light-mode .terminal-section {
     color: #3fb950;
 }
 
-.terminal-warning {
-    color: #d29922;
-}
-
 .terminal-user {
     color: #58a6ff;
     font-weight: 600;
@@ -2051,21 +2047,6 @@ body.light-mode .terminal-section {
 
 .terminal-input:focus {
     outline: none;
-}
-
-/* Terminal Animation */
-@keyframes terminal-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.terminal-cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1rem;
-    background: #7ee787;
-    margin-left: 2px;
-    animation: terminal-blink 1s infinite;
 }
 
 /* Terminal Content Styling */
