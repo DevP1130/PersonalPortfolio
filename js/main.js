@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="terminal-command">Location:</span> North Brunswick, NJ<br>
                             <span class="terminal-command">University:</span> Georgia Institute of Technology<br>
                             <span class="terminal-command">Major:</span> Computer Science (B.S.)<br>
-                            <span class="terminal-command">GPA:</span> 3.41/4.0
+                            <span class="terminal-command">GPA:</span> 3.78/4.0
                         </div>
                     `;
                 }
@@ -669,17 +669,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="terminal-section-header">Technical Skills</div>
                         <div class="terminal-text">
                             <span class="terminal-command">Languages:</span><br>
-                            Java, Python, C, C++, JavaScript, HTML, CSS, SQL
+                            Java, Python, C++, C, SQL, JavaScript, TypeScript, GoLang, Bash/Shell, HTML, CSS
                         </div>
                         <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">Frameworks & Libraries:</span><br>
-                            React.js, React Native, Flask, FastAPI, NumPy, OpenCV,
-                            MoviePy, Streamlit, ML-Agents, Power BI
+                            <span class="terminal-command">Systems & Distributed Computing:</span><br>
+                            Distributed Systems, Databases, Concurrency, Low Latency Systems, Real Time Systems, HPC, Data Structures, Algorithms
                         </div>
                         <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">Tools & Platforms:</span><br>
-                            Git, Docker, Linux, MongoDB, Nix, PyCharm,
-                            Google ADK, Video Intelligence API, Microsoft Office
+                            <span class="terminal-command">AI / ML:</span><br>
+                            Prompt Engineering, PyTorch, scikit-learn, OpenCV, LangChain, LangGraph, LlamaIndex, RAG, Multi-Agent Systems
+                        </div>
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Data & Infrastructure:</span><br>
+                            PostgreSQL, Salesforce, Data Pipelines, Vector DBs, Docker, Kubernetes, AWS, CI/CD, Prometheus, Linux, Git
+                        </div>
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Frameworks:</span><br>
+                            React.js, Next.js, Node.js, FastAPI, Flask, REST APIs, GraphQL
                         </div>
                     `;
                 }
@@ -693,28 +699,30 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="terminal-text">
                             <span class="terminal-command">New York Life Securities - Software Engineering Intern</span><br>
                             May 2026 - Present<br>
-                            • New York, NY
+                            • Led integration of the Hiya caller identity API across 7,000+ agent lines, increasing customer answer rates by 38%<br>
+                            • Built a full-stack client notes app (React, TypeScript, Python) syncing to Salesforce via a custom Connected App<br>
+                            • Shipped an accessibility tool automating WCAG 2.1 AA audits for 500+ users
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">Finplex - Software Engineering Intern</span><br>
+                            May 2025 - Dec 2025<br>
+                            • Built a RAG retrieval pipeline in Python backed by a vector DB, improving retrieval accuracy by 25%<br>
+                            • Owned a full-stack financial data app using React.js, Next.js, and TypeScript with PostgreSQL
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
                             <span class="terminal-command">Photon Insights - Software Engineering Intern</span><br>
                             Jul 2024 - Aug 2025<br>
-                            • Built modular Java/REST API data pipelines, reducing processing latency by ~35%<br>
-                            • Integrated embedding-based search and NLP models, improving classification accuracy by 27%
+                            • Architected a scalable data pipeline in Python across 10,000+ records, reducing latency by ~35%<br>
+                            • Delivered full-stack analytics features across 3+ live AI workflows
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
                             <span class="terminal-command">NJIT Bader Research Group - Research Intern</span><br>
                             Jun - Aug 2024<br>
-                            • Implemented MC1, MC2, MC3 Monte Carlo algorithms for large-scale spatio-temporal data<br>
-                            • Integrated DBSCAN for cluster detection and optimized performance with advanced pruning
-                        </div>
-
-                        <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">Finplex - Machine Learning Intern</span><br>
-                            May - Dec 2024<br>
-                            • Built document parsing microservice with Python and Docker for unstructured bank loan docs<br>
-                            • Integrated NLP pipelines with LLMs via Ollama, improving accuracy by ~25%
+                            • Implemented Monte Carlo simulation algorithms for large-scale spatiotemporal analysis on Linux HPC systems<br>
+                            • Applied parallel computing and scikit-learn DBSCAN clustering across high-dimensional datasets
                         </div>
                     `;
                 }
@@ -729,13 +737,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="terminal-command">Georgia Institute of Technology</span><br>
                             Bachelor of Science in Computer Science<br>
                             Aug 2025 - May 2028 (Expected)<br>
-                            GPA: 3.41/4.0
-                        </div>
-
-                        <div class="terminal-text" style="margin-top: 0.5rem;">
-                            <span class="terminal-command">Raritan Valley Community College</span><br>
-                            Associate of Science<br>
-                            May 2023 - May 2025<br>
                             GPA: 3.78/4.0
                         </div>
                     `;
@@ -766,6 +767,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             • Next.js, TypeScript, Firestore, Capacitor<br>
                             • Modular type-safe CRUD hooks for web and mobile<br>
                             • Strongly typed third-party exercise API pipeline
+                        </div>
+
+                        <div class="terminal-text" style="margin-top: 0.5rem;">
+                            <span class="terminal-command">4. Apache Airavata (Airavata 2.0 / NASA)</span><br>
+                            • Python, Java, Docker, Distributed Systems<br>
+                            • NSF/NASA-funded open source distributed systems project<br>
+                            • Performance-optimized data readers cutting load times by 40-70%
                         </div>
 
                         <div class="terminal-text" style="margin-top: 0.5rem;">
@@ -809,7 +817,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return `
                         <div class="terminal-section-header">Contact Information</div>
                         <table class="terminal-table">
-                            <tr><td>Email:</td><td>devjpatel.30@gmail.com</td></tr>
+                            <tr><td>Email:</td><td>dpatel878@gatech.edu</td></tr>
                             <tr><td>Phone:</td><td>848-667-9589</td></tr>
                             <tr><td>Location:</td><td>North Brunswick, NJ</td></tr>
                             <tr><td>LinkedIn:</td><td>linkedin.com/in/dev-patel-642504240</td></tr>
